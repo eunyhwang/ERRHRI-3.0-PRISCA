@@ -1,0 +1,14 @@
+torch==2.5.1
+torchvision
+torchaudio==2.5.1
+transformers
+mediapipe==0.10.5
+protobuf==4.25.3
+opencv-python
+numpy
+pandas
+scikit-learn
+tqdm
+Pillow
+silero-vad==5.1.2
+soundfile
