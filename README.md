@@ -13,7 +13,7 @@ Multimodal Detection of Errors and Anticipation in Human-Robot Interactions
 ├── track1/
 ├── track2/
 │   ├── badidea_late_fusion_padding.py        # Track 2 v1: Visual + Landmark
-│   ├── badidea_late_fusion_audio.py (tentative)          # Track 2 v2: Visual + Landmark + Audio
+│   ├── badidea_late_fusion_audio.py          # Track 2 v2: Visual + Landmark + Audio
 │   ├── train_badidea.py                      # Training script 
 │   ├── inference_badidea.py                  # Inference script 
 │   └── badnet_pytorch.py                     # Utility functions
@@ -21,7 +21,7 @@ Multimodal Detection of Errors and Anticipation in Human-Robot Interactions
 │   ├── extract_badidea_npy.py                # Frame extraction
 │   ├── extract_landmark_badidea.py           # Landmark extraction (trainval)
 │   ├── extract_landmark_badidea_testdata.py  # Landmark extraction (test)
-│   └── extract_aduio.py(#vad_spike_gate_track2_lesstime.py)     # Audio feature extraction
+│   └── extract_aduio.py                      # Audio feature extraction
 └── data/badidea/
     ├── train_labels.csv
     └── val_labels.csv
@@ -47,6 +47,9 @@ pip install -r requirements.txt
 ---
 
 ## Track 2. Bad Idea Dataset
+It should be known that we are making 2 submissions for track 2. One is a visual model only and the other one is the visual and audio models fused. The files related to the audio model are called "extract_audio.py" and "badidea_late_fusion_audio.py" which can be found under the folders "preprocessing" and "track2" respectively.
+
+To replicate the results for Submission 1 (Video Only): Follow the steps up until Step 3 to get the CSV file. To replicate the results for Submission 2 (Video + Audio_: Follow all the steps (including the first 3 steps).
 
 #### Window Parameters: `fps=30, window_size=150, slide=30`
 
@@ -73,5 +76,15 @@ python badnet/inference_badidea.py \
   --lm_proj_dim 128 --seed 42
 ```
 
-### Step 3: Inference (v2: Visual + Landmark + Audio)
-*[to be filled]*
+### Step 4: Audio Extraction (v2: Visual + Landmark + Audio)
+python extract_audio.py --data_dir "/path/to/test/data" --out_dir  ./Output --fps 30 --window_size 150 --slide 30 --vad-threshold 0.15 --min-speech-ms 50 --max_workers 4
+This outputs a csv file called "per_window_features.csv" which will be used in the next step.
+
+### Step 5: Inference (v2: Visual + Landmark + Audio)
+ python badidea_late_fusion_audio.py.py --windows ./Output/per_window_features.csv  --visual /path/to/test_submission.csv (From  Step 3: Visual Model CSV output file)   --out ./Output/test_submission_audio_and_video.csv  --lambda_w 0.40
+
+
+ This concludes all steps and gives the final CSV files for both submissions. 
+ Submission 1: test_submission.csv
+ Submission 2: test_submission_audio_and_video.csv
+
