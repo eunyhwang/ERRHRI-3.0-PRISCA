@@ -48,7 +48,7 @@ pip install -r requirements.txt
 
 ## Track 2. Bad Idea Dataset
 
-### Window Parameters: `fps=30, window_size=150, slide=30`
+#### Window Parameters: `fps=30, window_size=150, slide=30`
 
 ### Step 1: Frame Extraction
 Edit `TRAINVAL_DIR` and `NPY_ROOT` in `preprocessing/extract_badidea_npy.py`, then:
