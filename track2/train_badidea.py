@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# metrics updated and Cross-validation added (newesttttttt)
-# landmarks late-fusion added
-# top layer unfreezing added
-# focal_loss
-
 import os
 import sys
 import argparse
@@ -19,7 +14,7 @@ from torch.utils.data import DataLoader
 from sklearn.metrics import f1_score, balanced_accuracy_score, roc_auc_score
 from sklearn.model_selection import GroupKFold
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+#sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from badnet_pytorch import set_seed
 from badidea_model import BadIdeaDatasetVideo, BadIdeaTransformer, collate_fn
