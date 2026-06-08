@@ -67,7 +67,7 @@ python preprocessing/extract_landmark_badidea_testdata.py
 
 ### Step 3: Inference (v1: Visual + Landmark)
 ```bash
-python badnet/inference_badidea.py \
+python track2/inference_badidea.py \
   --npy_base_path /path/to/test_npy \
   --landmark_dir /path/to/test_npy_landmark \
   --checkpoint /path/to/best_model.pth \
