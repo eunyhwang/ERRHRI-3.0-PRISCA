@@ -78,7 +78,7 @@ python badnet/inference_badidea.py \
 
 ### Step 4: Audio Extraction (v2: Visual + Landmark + Audio)
 ```bash
-python extract_audio.py
+python preprocessing/extract_audio.py
 --data_dir "/path/to/test/data"
 --out_dir  ./Output --fps 30
 --window_size 150 --slide 30
@@ -90,7 +90,7 @@ This outputs a csv file called "per_window_features.csv" which will be used in t
 
 ### Step 5: Inference (v2: Visual + Landmark + Audio)
 ```bash
- python badidea_late_fusion_audio.py
+ python track2/badidea_late_fusion_audio.py
 --windows ./Output/per_window_features.csv
 --visual /path/to/test_submission.csv (From  Step 3: Visual Model CSV output file)
 --out ./Output/test_submission_audio_and_video.csv
