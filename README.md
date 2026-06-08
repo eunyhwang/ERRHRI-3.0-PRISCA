@@ -1,6 +1,6 @@
 # ICMI ERR@HRI 3.0 Challenge Submission
 
-Multimodal Detection of Errors and Anticipation in Human-Robot Interactions\
+Multimodal Detection of Errors and Anticipation in Human-Robot Interactions
 - [Challenge Website](https://sites.google.com/view/errhri30/)
 - [Challenge Repository](https://github.com/IRL-CT/errhri-3-0/tree/main)
 
