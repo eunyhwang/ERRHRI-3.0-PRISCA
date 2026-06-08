@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ---
 
 ## Track 1. Bad (Bystander Affect Detection) Dataset
-The only requirement to replicate the results and run everything smoothly is to have the testset data folder in the same folder as the files and the environment.yaml file. Then just run the yaml file to replicate the results and get the resultant csv output file.
+The only requirement to replicate the results and run everything smoothly is to have the test set data folder (named "test_data_baddataset") in the same folder as the .py files. The conda environment can be built using the attached environment.yaml file. To replicate the pipelina, run the pipeline_test.py file, which will create a folder with intermediate features and build a sub_test.csv file.
 
 #### Declared Variables: `fps=5, window_size=10, slide=5`
 
