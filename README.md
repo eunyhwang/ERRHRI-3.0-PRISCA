@@ -44,6 +44,9 @@ pip install -r requirements.txt
 ## Track 1. Bad (Bystander Affect Detection) Dataset
 The only requirement to replicate the results and run everything smoothly is to have the testset data folder in the same folder as the files and the environment.yaml file. Then just run the yaml file to replicate the results and get the resultant csv output file.
 
+Declared Variables: FPS: 5 Window_size:10 Slide:5
+
+
 ---
 
 ## Track 2. Bad Idea Dataset
