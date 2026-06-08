@@ -1,0 +1,46 @@
+python validate_submission.py  --pred sub_test.csv     --track 1     --fps 5 --window_size 10 --slide 5
+
+============================================================
+  ERR@HRI 3.0 Submission Validator
+  Track 1 — Bystander Reaction Detection (BAD Dataset)
+  fps=5  window_size=10  slide=5
+  Mode: FORMAT CHECK ONLY (participant)
+============================================================
+
+------------------------------------------------------------
+  FORMAT CHECKS
+------------------------------------------------------------
+  [PASS] Required columns present
+  [PASS] y_prob_0 and y_prob_1 in [0, 1]
+  [PASS] y_prob_0 + y_prob_1 ≈ 1 (tol 0.01)
+  [PASS] y_pred is binary (0 or 1)
+  [PASS] window_id is non-negative integer
+  [PASS] No duplicate (participant_id, video_id, window_id) rows
+  [PASS] window_size (10) ≤ 2 × fps (5) = 10  [Track 1]
+  [PASS] slide (5) ≤ window_size (10)
+  [PASS] window_id is 0-indexed and sequential per clip
+
+  All format checks passed.
+
+------------------------------------------------------------
+  COVERAGE CHECK
+------------------------------------------------------------
+  Expected videos : 326
+  Submitted videos: 326
+  [PASS] All expected videos are present.
+
+------------------------------------------------------------
+  SUBMISSION SUMMARY
+------------------------------------------------------------
+  Clips (participant + video pairs): 326
+  Total windows                    : 4795
+  Windows per clip — min/mean/max  : 4/14.7/33
+  y_pred=0 (window level)         : 499 (10.4%)
+  y_pred=1 (window level)         : 4296 (89.6%)
+  y_prob_1 — min/mean/max          : 0.163/0.642/1.000
+
+============================================================
+  RESULT: FORMAT OK
+  Your submission passed all format checks.
+  To see full metrics, re-run with --gt <ground_truth.csv>
+  (organizer use only — ground truth is not released to participants).
