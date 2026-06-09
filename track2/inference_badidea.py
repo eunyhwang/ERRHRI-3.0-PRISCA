@@ -79,10 +79,14 @@ class BadIdeaTestDataset(Dataset):
             for npy_file in sorted(os.listdir(pid_dir)):
                 if not npy_file.endswith(".npy"):
                     continue
-                match = re.match(r"(q_\d+)_main_-?\d+_\d+fps_frame\d+", npy_file)
+                #match = re.match(r"(q_\d+)_main_-?\d+_\d+fps_frame\d+", npy_file)
+                match = re.match(r"(q_\d+_main)_-?\d+_\d+fps_frame\d+", npy_file)
+
                 if not match:
                     # test set has no label: q_10_main_30fps_frame0001.npy
-                    match = re.match(r"(q_\d+)_main_-?\d+_\d+fps_frame\d+", npy_file)
+                    #match = re.match(r"(q_\d+)_main_-?\d+_\d+fps_frame\d+", npy_file)
+                    match = re.match(r"(q_\d+_main)_-?\d+_\d+fps_frame\d+", npy_file)
+
                     if not match:
                         continue
                 q_id = match.group(1)
@@ -122,10 +126,11 @@ class BadIdeaTestDatasetWithLandmark(Dataset):
             for i, p in enumerate(parts):
                 if p.isdigit() and len(p) == 4:
                     pid = p
-                    # q_id 찾기
+                    # finding q_id
                     for j in range(i+1, len(parts)):
                         if parts[j] == 'q' and j+1 < len(parts) and parts[j+1].isdigit():
-                            q_id = f"q_{parts[j+1]}"
+                            #q_id = f"q_{parts[j+1]}"
+                            q_id = f"q_{parts[j+1]}_main"
                             lm_lookup[(pid, q_id)] = os.path.join(landmark_dir, fname)
                             break
                     break
@@ -140,7 +145,9 @@ class BadIdeaTestDatasetWithLandmark(Dataset):
             for npy_file in sorted(os.listdir(pid_dir)):
                 if not npy_file.endswith(".npy"):
                     continue
-                match = re.match(r"(q_\d+)_main_-?\d+_\d+fps_frame\d+", npy_file)
+                #match = re.match(r"(q_\d+)_main_-?\d+_\d+fps_frame\d+", npy_file)
+                match = re.match(r"(q_\d+_main)_-?\d+_\d+fps_frame\d+", npy_file)
+
                 if not match:
                     continue
                 q_id = match.group(1)
